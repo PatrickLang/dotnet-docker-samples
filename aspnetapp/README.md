@@ -29,10 +29,23 @@ docker build -t aspnetapp .
 docker run -d -p 80:80 aspnetapp
 ```
 
-Follow these steps to run this sample in a  Windows container:
+Follow these steps to run this sample in a Windows container:
 
 ```console
 dotnet publish -o published
+docker build -t aspnetapp -f Dockerfile.nano .
+docker run -d -p 80:80 aspnetapp
+```
+
+Alternate: If you don't have the .Net Core SDK installed, you can also build the sample project using the tools in a container without installing them on your host. Here's an example on Windows:
+
+```powershell
+docker run -i -v "$($pwd.Path):c:\src" microsoft/aspnetcore-build powershell.exe "cd \src ; dotnet restore ; dotnet publish -o published"
+```
+
+Then build and run the container as before:
+
+```powershell
 docker build -t aspnetapp -f Dockerfile.nano .
 docker run -d -p 80:80 aspnetapp
 ```
