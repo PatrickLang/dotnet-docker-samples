@@ -1,4 +1,3 @@
-FROM microsoft/dotnet:1.0-runtime
-WORKDIR /app
-COPY out .
-ENTRYPOINT ["dotnet", "dotnetapp.dll"]
+FROM microsoft/dotnet:1.1.2-runtime-jessie
+COPY out /app
+ENTRYPOINT ["dotnet.exe", "/app/dotnetapp.dll"]

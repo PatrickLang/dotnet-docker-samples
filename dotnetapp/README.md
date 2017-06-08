@@ -80,3 +80,12 @@ You are invited to contribute new features, fixes, or updates, large or small; w
 ## Documentation
 
 You can read documentation for .NET Core, including Docker usage in the [.NET Core docs](https://docs.microsoft.com/dotnet/articles/core/). The docs are [open source on GitHub](https://github.com/dotnet/core-docs). Contributions are welcome!
+
+
+# Building these images
+
+
+
+```powershell
+docker run -i -v "$($pwd.Path):c:\src" microsoft/aspnetcore-build powershell.exe "cd \src ; dotnet restore ; dotnet publish -o out"
+```
